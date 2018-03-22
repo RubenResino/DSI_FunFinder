@@ -1,0 +1,1 @@
+Estamos todavía aprediendo a usar Angular y su entorno, no hemos podido desarrollar nada en esta mricopractica
