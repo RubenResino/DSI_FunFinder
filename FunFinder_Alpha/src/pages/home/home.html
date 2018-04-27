@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>FunFinder</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>El Rey León</h3>
+
+  <!--<button ion-button secondary menuToggle>Toggle Menu</button>-->
+  
+  <button ion-button (click)="gotoPage('PagBotonesPage')">Ir a pagina de Botones</button>
+  <button ion-button (click)="gotoPage('CardsPage')">Ir a pagina de Cards</button>
+  <button ion-button (click)="gotoPage('ChecksPage')">Ir a pagina de Checks</button>
+
+
+</ion-content>
