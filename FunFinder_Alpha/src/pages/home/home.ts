@@ -19,13 +19,29 @@ export class HomePage {
 	  this.navCtrl.push(pagina);
   }
 
-  addCliente(){
-	let datoscliente:Cliente=new Cliente();
-	datoscliente.nombre="Pepe";
-	datoscliente.apellidos="San Juan";
-	this.dbFirebase.guardaCliente(datoscliente).then(res=>{alert(datoscliente.id+ " guardado en FB"); });
-	}
+  addCliente2()
+  {
+		let datoscliente:Cliente=new Cliente();
+	  
+		datoscliente.nombre="Pepe";
+		datoscliente.apellidos="San Juan";
+	  
+		this.dbFirebase.guardaCliente(datoscliente).then(res=>{
+			alert(datoscliente.id+ " guardado en FB");
+		});
+	  
+  }
 
+	updateCliente(id)
+  {
+	  let datoscliente:Cliente=new Cliente();
+	  datoscliente.id=id;
+	  datoscliente.nombre="Maria";
+	  datoscliente.apellidos="de las mercedes";
+	  
+	  this.dbFirebase.guardaCliente(datoscliente);
+  }
+  
 	delCliente(id) { this.dbFirebase.delCliente(id); }
 
 	ionViewDidEnter() {

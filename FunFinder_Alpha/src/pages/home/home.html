@@ -12,10 +12,11 @@
 
   <!--<button ion-button secondary menuToggle>Toggle Menu</button>-->
   
-  <button ion-button (click)="gotoPage('eventos')">Eventos</button>
+  <!--<button ion-button (click)="gotoPage('eventos')">Eventos</button>
   <button ion-button (click)="gotoPage('CardsPage')">Ir a pagina de Cards</button>
   <button ion-button (click)="gotoPage('ChecksPage')">Ir a pagina de Checks</button>
-
+  -->
+  <button ion-button (click)="addCliente2()">AÑADIR</button>
   <h1>LISTADO DE CLIENTES:</h1>
   <p *ngFor="let cliente of listaClientes ">
   <button small ion-button (click)="delCliente([cliente.id])">-</button>
