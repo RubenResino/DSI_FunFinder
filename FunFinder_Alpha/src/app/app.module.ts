@@ -10,6 +10,15 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
 
+export const fireBaseConfig={
+    apiKey: "AIzaSyDWSsm2T47c7hpvSuBT93QpzhUJL7hpAUs",
+    authDomain: "dsi-funfinder.firebaseapp.com",
+    databaseURL: "https://dsi-funfinder.firebaseio.com",
+    projectId: "dsi-funfinder",
+    storageBucket: "dsi-funfinder.appspot.com",
+    messagingSenderId: "141145935893"
+  };
+
 @NgModule({
   declarations: [
     MyApp,
@@ -27,7 +36,6 @@ import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
     HomePage
   ],
   providers: [
-    FirebaseDbProvider,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
@@ -35,12 +43,3 @@ import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
   ]
 })
 export class AppModule {}
-
-export const fireBaseConfig={
-    apiKey: "AIzaSyDWSsm2T47c7hpvSuBT93QpzhUJL7hpAUs",
-    authDomain: "dsi-funfinder.firebaseapp.com",
-    databaseURL: "https://dsi-funfinder.firebaseio.com",
-    projectId: "dsi-funfinder",
-    storageBucket: "dsi-funfinder.appspot.com",
-    messagingSenderId: "141145935893"
-  };

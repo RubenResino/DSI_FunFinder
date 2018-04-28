@@ -18,10 +18,10 @@ export class FirebaseDbProvider {
     console.log('Hello FirebaseDbProvider Provider');
   }
 
-}
-
 guardaCliente(cliente:Cliente) {
-	if (cliente.id=='') {cliente.id=""+Date.now();}
+	if (cliente.id=='') {
+		cliente.id = ""+Date.now();
+		}
 	return this.afDB.database.ref('clientes/'+cliente.id).set(cliente);
 }
 
@@ -34,3 +34,6 @@ private clientesRef=this.afDB.list<Cliente>('clientes');
 getClientes() {
 	return this.clientesRef.valueChanges();
 }
+
+}
+
