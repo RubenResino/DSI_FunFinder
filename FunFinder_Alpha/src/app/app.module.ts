@@ -6,6 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,9 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(fireBaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -22,9 +27,20 @@ import { HomePage } from '../pages/home/home';
     HomePage
   ],
   providers: [
+    FirebaseDbProvider,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FirebaseDbProvider
   ]
 })
 export class AppModule {}
+
+export const fireBaseConfig={
+    apiKey: "AIzaSyDWSsm2T47c7hpvSuBT93QpzhUJL7hpAUs",
+    authDomain: "dsi-funfinder.firebaseapp.com",
+    databaseURL: "https://dsi-funfinder.firebaseio.com",
+    projectId: "dsi-funfinder",
+    storageBucket: "dsi-funfinder.appspot.com",
+    messagingSenderId: "141145935893"
+  };
