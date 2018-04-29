@@ -1,7 +1,7 @@
 //import { HttpClient } from '@angular/common/http';
 import { AngularFireDatabase} from 'angularfire2/database';
 import { Cliente } from '../../models/cliente.model';
-
+import { Evento } from '../../models/evento.model';
 import { Injectable } from '@angular/core';
 
 /*
@@ -16,7 +16,14 @@ export class FirebaseDbProvider {
   //constructor(public http: HttpClient) 
   	constructor(public afDB:AngularFireDatabase) {
     console.log('Hello FirebaseDbProvider Provider');
-  }
+	}
+	
+guardaEvento(evento:Evento){
+	if (evento.id=='') {
+		evento.id = ""+Date.now();
+		}
+	return this.afDB.database.ref('eventos/'+evento.id).set(evento);
+}
 
 guardaCliente(cliente:Cliente) {
 	if (cliente.id=='') {

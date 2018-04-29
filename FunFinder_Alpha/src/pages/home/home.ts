@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 import { Cliente } from '../../models/cliente.model';
+import { Evento } from '../../models/evento.model';
 
 @Component({
   selector: 'page-home',
@@ -12,7 +13,7 @@ export class HomePage {
 	listaClientes:any;
   constructor(public navCtrl: NavController,public dbFirebase:FirebaseDbProvider) {
 
-  }
+	}
   
   gotoPage(pagina)
   {

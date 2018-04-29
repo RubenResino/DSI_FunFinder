@@ -1,3 +1,4 @@
+import { CreateEventPage } from './../pages/create-event/create-event';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -22,7 +23,8 @@ export const fireBaseConfig={
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    CreateEventPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ export const fireBaseConfig={
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage, 
+    CreateEventPage
   ],
   providers: [
     StatusBar,
