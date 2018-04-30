@@ -1,3 +1,4 @@
+import { InicioSesionPage } from './../pages/inicio-sesion/inicio-sesion';
 import { RegistroPage } from './../pages/registro/registro';
 import { CreateEventPage } from './../pages/create-event/create-event';
 import { BrowserModule } from '@angular/platform-browser';
@@ -26,8 +27,8 @@ export const fireBaseConfig={
     MyApp,
     HomePage,
     CreateEventPage,
-    RegistroPage
-
+    RegistroPage,
+    InicioSesionPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +41,8 @@ export const fireBaseConfig={
     MyApp,
     HomePage, 
     CreateEventPage,
-    RegistroPage
+    RegistroPage,
+    InicioSesionPage
   ],
   providers: [
     StatusBar,

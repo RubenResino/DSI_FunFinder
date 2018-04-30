@@ -1,18 +1,17 @@
 import { RegistroPage } from './../pages/registro/registro';
-
-
-
-import { CreateEventPage } from '../pages/create-event/create-event';
+import { InicioSesionPage } from './../pages/inicio-sesion/inicio-sesion';
+import { CreateEventPage } from './../pages/create-event/create-event';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = RegistroPage;
+  rootPage:any = InicioSesionPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
