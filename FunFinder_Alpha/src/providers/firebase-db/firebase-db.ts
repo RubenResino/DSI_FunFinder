@@ -27,6 +27,7 @@ guardaEvento(evento:Evento){
 }
 
 guardaUsuario(usuario:Usuario) {
+
 	if (usuario.id=='') {
 		usuario.id = ""+Date.now();
 		}
@@ -37,6 +38,7 @@ guardaCliente(cliente:Cliente) {
 	if (cliente.id=='') {
 		cliente.id = ""+Date.now();
 		}
+
 	return this.afDB.database.ref('clientes/'+cliente.id).set(cliente);
 }
 

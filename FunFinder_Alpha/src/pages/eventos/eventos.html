@@ -14,20 +14,18 @@
 
 
 <ion-content padding>
-
-
-<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDWSsm2T47c7hpvSuBT93QpzhUJL7hpAUs",
-    authDomain: "dsi-funfinder.firebaseapp.com",
-    databaseURL: "https://dsi-funfinder.firebaseio.com",
-    projectId: "dsi-funfinder",
-    storageBucket: "dsi-funfinder.appspot.com",
-    messagingSenderId: "141145935893"
-  };
-  firebase.initializeApp(config);
-</script>
-
+  
+  <ion-card *ngFor="let evento of listaEventos ">
+    <img src="assets/imgs/logo.png"/>
+    <ion-card-content>
+      <ion-card-title>
+          {{evento.nombre}}
+      </ion-card-title>
+      <ion-item>
+        <p item-start>{{evento.fecha | date:'dd-MM-yyyy'}}</p>
+        <p item-end>{{evento.precio | number:'0.2-2'}} €</p>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>

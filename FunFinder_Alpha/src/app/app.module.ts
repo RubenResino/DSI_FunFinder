@@ -11,6 +11,8 @@ import { HomePage } from '../pages/home/home';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
+import { EventosPage } from '../pages/eventos/eventos';
+import { FirebaseAuthProvider } from '../providers/firebase-auth/firebase-auth';
 
 export const fireBaseConfig={
     apiKey: "AIzaSyDWSsm2T47c7hpvSuBT93QpzhUJL7hpAUs",
@@ -26,7 +28,8 @@ export const fireBaseConfig={
     MyApp,
     HomePage,
     CreateEventPage,
-    RegistroPage
+    RegistroPage,
+    EventosPage
 
   ],
   imports: [
@@ -40,13 +43,15 @@ export const fireBaseConfig={
     MyApp,
     HomePage, 
     CreateEventPage,
-    RegistroPage
+    RegistroPage,
+    EventosPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FirebaseDbProvider
+    FirebaseDbProvider,
+    FirebaseAuthProvider
   ]
 })
 export class AppModule {}
