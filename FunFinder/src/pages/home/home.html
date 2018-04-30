@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>FunFinder</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>El Rey León</h3>
+
+  <!--<button ion-button secondary menuToggle>Toggle Menu</button>-->
+  
+  <!--<button ion-button (click)="gotoPage('eventos')">Eventos</button>
+  <button ion-button (click)="gotoPage('CardsPage')">Ir a pagina de Cards</button>
+  <button ion-button (click)="gotoPage('ChecksPage')">Ir a pagina de Checks</button>
+  -->
+  <button ion-button (click)="addCliente2()">AÑADIR</button>
+  <h1>LISTADO DE CLIENTES:</h1>
+  <p *ngFor="let evento of listaEventos ">
+  <!--<button small ion-button (click)="delCliente([cliente.id])">-</button>
+  <button small ion-button (click)="updateCliente([cliente.id])">u</button>-->
+  {{evento.nombre}} {{evento.plazas}}
+  </p>
+
+</ion-content>
