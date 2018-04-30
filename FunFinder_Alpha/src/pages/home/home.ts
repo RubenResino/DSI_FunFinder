@@ -11,6 +11,7 @@ import { Evento } from '../../models/evento.model';
 export class HomePage {
 
 	listaClientes:any;
+	listaEventos:any;
   constructor(public navCtrl: NavController,public dbFirebase:FirebaseDbProvider) {
 
 	}
@@ -36,9 +37,11 @@ export class HomePage {
 	updateCliente(id)
   {
 	  let datoscliente:Cliente=new Cliente();
-	  datoscliente.id=id;
+	  datoscliente.id=""+id;
 	  datoscliente.nombre="Maria";
-	  datoscliente.apellidos="de las mercedes";
+		datoscliente.apellidos="de las mercedes";
+		
+		alert(id);
 	  
 	  this.dbFirebase.guardaCliente(datoscliente);
   }
@@ -47,6 +50,7 @@ export class HomePage {
 
 	ionViewDidEnter() {
 		this.dbFirebase.getClientes().subscribe(listaClientes=>{this.listaClientes=listaClientes;});
+		this.dbFirebase.getEventos().subscribe(listaEventos=>{this.listaEventos=listaEventos;});
 	}
 
 }

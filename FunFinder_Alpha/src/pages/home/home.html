@@ -18,10 +18,10 @@
   -->
   <button ion-button (click)="addCliente2()">AÑADIR</button>
   <h1>LISTADO DE CLIENTES:</h1>
-  <p *ngFor="let cliente of listaClientes ">
-  <button small ion-button (click)="delCliente([cliente.id])">-</button>
-  <button small ion-button (click)="updateCliente([cliente.id])">u</button>
-  {{cliente.nombre}} {{cliente.apellidos}}
+  <p *ngFor="let evento of listaEventos ">
+  <!--<button small ion-button (click)="delCliente([cliente.id])">-</button>
+  <button small ion-button (click)="updateCliente([cliente.id])">u</button>-->
+  {{evento.nombre}} {{evento.plazas}}
   </p>
 
 </ion-content>

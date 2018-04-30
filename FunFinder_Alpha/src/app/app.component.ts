@@ -1,5 +1,6 @@
 
 
+
 import { CreateEventPage } from '../pages/create-event/create-event';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
@@ -10,7 +11,7 @@ import { HomePage } from '../pages/home/home';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = CreateEventPage;
+  rootPage:any = HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

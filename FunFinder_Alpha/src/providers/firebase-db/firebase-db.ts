@@ -38,6 +38,12 @@ delCliente(id) {
 
 private clientesRef=this.afDB.list<Cliente>('clientes');
 
+private eventosRef=this.afDB.list<Evento>('eventos');
+
+getEventos() {
+	return this.eventosRef.valueChanges();
+}
+
 getClientes() {
 	return this.clientesRef.valueChanges();
 }
