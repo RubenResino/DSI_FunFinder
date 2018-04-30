@@ -30,12 +30,8 @@ export const fireBaseConfig={
     HomePage,
     CreateEventPage,
     RegistroPage,
-<<<<<<< HEAD
-    EventosPage
-
-=======
+    EventosPage,
     InicioSesionPage
->>>>>>> b82b821e68a93b01a2b54d499a9cf0efc6f4d3b6
   ],
   imports: [
     BrowserModule,
@@ -49,11 +45,8 @@ export const fireBaseConfig={
     HomePage, 
     CreateEventPage,
     RegistroPage,
-<<<<<<< HEAD
-    EventosPage
-=======
+    EventosPage,
     InicioSesionPage
->>>>>>> b82b821e68a93b01a2b54d499a9cf0efc6f4d3b6
   ],
   providers: [
     StatusBar,
