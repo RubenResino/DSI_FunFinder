@@ -1,3 +1,4 @@
+import { RegistroPage } from './../pages/registro/registro';
 import { CreateEventPage } from './../pages/create-event/create-event';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -24,7 +25,9 @@ export const fireBaseConfig={
   declarations: [
     MyApp,
     HomePage,
-    CreateEventPage
+    CreateEventPage,
+    RegistroPage
+
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ export const fireBaseConfig={
   entryComponents: [
     MyApp,
     HomePage, 
-    CreateEventPage
+    CreateEventPage,
+    RegistroPage
   ],
   providers: [
     StatusBar,

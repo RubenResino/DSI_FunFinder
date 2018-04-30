@@ -1,3 +1,4 @@
+import { Usuario } from './../../models/usuario.model';
 //import { HttpClient } from '@angular/common/http';
 import { AngularFireDatabase} from 'angularfire2/database';
 import { Cliente } from '../../models/cliente.model';
@@ -25,6 +26,13 @@ guardaEvento(evento:Evento){
 	return this.afDB.database.ref('eventos/'+evento.id).set(evento);
 }
 
+guardaUsuario(usuario:Usuario) {
+	if (usuario.id=='') {
+		usuario.id = ""+Date.now();
+		}
+	return this.afDB.database.ref('usuarios/'+usuario.id).set(usuario);
+}
+
 guardaCliente(cliente:Cliente) {
 	if (cliente.id=='') {
 		cliente.id = ""+Date.now();
@@ -39,6 +47,12 @@ delCliente(id) {
 private clientesRef=this.afDB.list<Cliente>('clientes');
 
 private eventosRef=this.afDB.list<Evento>('eventos');
+
+private usuariosRef=this.afDB.list<Usuario>('usuarios');
+
+getUsuarios() {
+	return this.usuariosRef.valueChanges();
+}
 
 getEventos() {
 	return this.eventosRef.valueChanges();

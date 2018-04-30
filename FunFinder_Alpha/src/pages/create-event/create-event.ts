@@ -29,7 +29,7 @@ export class CreateEventPage {
     })
   }
 
-  logForm(){
+  createEvent(){
     let datosevento:Evento=new Evento();
     datosevento.nombre=this.eventForm.controls['nombre'].value;
     datosevento.descripcion=this.eventForm.controls['descripcion'].value;
