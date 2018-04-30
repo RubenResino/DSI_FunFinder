@@ -1,3 +1,4 @@
+import { InicioSesionPage } from './../pages/inicio-sesion/inicio-sesion';
 import { RegistroPage } from './../pages/registro/registro';
 import { CreateEventPage } from './../pages/create-event/create-event';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,8 +30,12 @@ export const fireBaseConfig={
     HomePage,
     CreateEventPage,
     RegistroPage,
+<<<<<<< HEAD
     EventosPage
 
+=======
+    InicioSesionPage
+>>>>>>> b82b821e68a93b01a2b54d499a9cf0efc6f4d3b6
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,11 @@ export const fireBaseConfig={
     HomePage, 
     CreateEventPage,
     RegistroPage,
+<<<<<<< HEAD
     EventosPage
+=======
+    InicioSesionPage
+>>>>>>> b82b821e68a93b01a2b54d499a9cf0efc6f4d3b6
   ],
   providers: [
     StatusBar,
