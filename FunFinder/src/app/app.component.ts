@@ -22,7 +22,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = RegistroPage;
+  rootPage:any = InicioSesionPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,  public authFirebase:FirebaseAuthProvider, public menuCtrl: MenuController) {
     platform.ready().then(() => {
