@@ -61,5 +61,25 @@ export class MyApp {
   logout(){
     this.authFirebase.afAuth.auth.signOut();
   }
+
+  misEntradas(){
+
+  }
+
+  misEventos(){
+
+  }
+
+  crearEvento(){
+
+  }
+
+  iniciarSesion(){
+
+  }
+
+  registrarse(){
+
+  }
 }
 
