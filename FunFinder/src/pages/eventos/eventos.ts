@@ -1,3 +1,4 @@
+import { EventosCreadosPage } from './../eventos-creados/eventos-creados';
 import { FirebaseDbProvider } from './../../providers/firebase-db/firebase-db';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -19,6 +20,10 @@ import { InfoEventoPage } from '../info-evento/info-evento';
 export class EventosPage {
 	listaEventos:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider) {
+  }
+  
+  a(){
+    this.navCtrl.push(EventosCreadosPage);
   }
 
   goEvent(Id){

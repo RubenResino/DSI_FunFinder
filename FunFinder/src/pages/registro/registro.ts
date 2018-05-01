@@ -44,7 +44,6 @@ export class RegistroPage {
     this.authFirebase.signUp(credentials).then(
       () => this.navCtrl.setRoot(EventosPage),
     );
-    alert(this.authFirebase.getUserEmail());
   }
 
 

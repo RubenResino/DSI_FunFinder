@@ -26,8 +26,19 @@ export class FirebaseAuthProvider {
   }
 
 
-  getUserEmail(){
-    return ;
+  getUser(){
+
+    return firebase.auth().currentUser;
+    /*
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        alert(user.uid);
+        return user;
+      } else {
+        alert(2);
+        return null;
+      }
+    });*/
   }
 
 }
