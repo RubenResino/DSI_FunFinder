@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { EventHistoryPage } from '../pages/event-history/event-history';
 import { EventosPage } from '../pages/eventos/eventos';
 import { InicioSesionPage } from '../pages/inicio-sesion/inicio-sesion';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -19,7 +19,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = EventosPage;
+  rootPage:any = EventHistoryPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
