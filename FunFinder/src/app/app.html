@@ -1,1 +1,20 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu id="authenticated" [content]="mycontent" type="push" swipeEnabled="false" persistent="false">
+    <ion-content>
+        <ion-list>
+            <button ion-button menuClose (click)="logout()" block>Mis entradas</button>
+            <button ion-button menuClose (click)="logout()" block>Mis eventos</button>
+            <button ion-button menuClose (click)="logout()" block>Crear evento</button>
+            <button ion-button menuClose (click)="logout()" block>Logout</button>
+
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-menu id="unauthenticated" [content]="mycontent" type="push" swipeEnabled="false" persistent="false">
+        <ion-content>
+            <ion-list>
+                <button ion-button menuClose (click)="logout()" block>Iniciar sesión</button>
+                <button ion-button menuClose (click)="logout()" block>Registrarse</button>    
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>

@@ -37,7 +37,7 @@ export class RegistroPage {
     let credentials = {
       nombre: data.nombre,
       email: data.email,
-      password: data.password,
+      password: data.contraseña,
       telefono: data.telefono,
     };
     //alert(this.authFirebase.getUserEmail());

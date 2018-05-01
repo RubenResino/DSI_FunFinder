@@ -1,7 +1,8 @@
+import { RegistroPage } from './../registro/registro';
 import { EventosPage } from './../eventos/eventos';
 import { FirebaseAuthProvider } from './../../providers/firebase-auth/firebase-auth';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 
@@ -19,24 +20,25 @@ import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 })
 export class InicioSesionPage {
   loginForm: FormGroup;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider, public formBuilder:FormBuilder) {
+  mostrarIniciar:Boolean = false;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider, public formBuilder:FormBuilder, public alertCtrl: AlertController) {
     this.loginForm = this.formBuilder.group({
       email: [''],
       contraseña: ['']
     })
   }
 
-  login(){
-    let data = this.loginForm.value;
+  showIniciar(){
+    this.mostrarIniciar=!this.mostrarIniciar;
+  }
 
-		if (!data.email) {
-			return;
-    }
-    
+  login(){  
+    let data = this.loginForm.value;
     let credentials = {
 			email: data.email,
-			password: data.password
-		};
+			password: data.contraseña
+    };
+    alert(credentials.email);
 		this.authFirebase.signInWithEmail(credentials)
 			.then(
 				() => {
@@ -45,6 +47,14 @@ export class InicioSesionPage {
         }
 			);
 
+  }
+
+  Registrarse(){
+    this.navCtrl.push(RegistroPage);
+  }
+
+  logSinUser(){
+    this.navCtrl.setRoot(EventosPage);
   }
   
   ionViewDidLoad() {

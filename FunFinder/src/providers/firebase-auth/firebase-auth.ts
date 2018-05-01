@@ -22,7 +22,7 @@ export class FirebaseAuthProvider {
   
   
   signUp(credentials) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, "Asdf1234");
+    return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
   }
 
 

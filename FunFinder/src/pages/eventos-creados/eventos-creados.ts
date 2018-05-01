@@ -1,3 +1,4 @@
+import { InfoEventoPage } from './../info-evento/info-evento';
 import { FirebaseAuthProvider } from './../../providers/firebase-auth/firebase-auth';
 import { FirebaseDbProvider } from './../../providers/firebase-db/firebase-db';
 
@@ -22,7 +23,7 @@ export class EventosCreadosPage {
   }
 
   goEvent(Id){
-    //this.navCtrl.push(InfoEventoPage, {id: Id});
+    this.navCtrl.push(InfoEventoPage, {id: Id});
   }
 
   ionViewDidLoad() {
