@@ -11,11 +11,9 @@ import AuthProvider = firebase.auth.AuthProvider;
 */
 @Injectable()
 export class FirebaseAuthProvider {
-  private user: firebase.User;
+  
   constructor(public afAuth: AngularFireAuth) {
-		afAuth.authState.subscribe(user => {
-			this.user = user;
-		});
+
   }
 
   signInWithEmail(credentials) {
@@ -27,12 +25,9 @@ export class FirebaseAuthProvider {
     return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, "Asdf1234");
   }
 
-  get authenticated(): boolean {
-    return this.user !== null;
-  }
 
   getUserEmail(){
-    return this.user.email;
+    return ;
   }
 
 }

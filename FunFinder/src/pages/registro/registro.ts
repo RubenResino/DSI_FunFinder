@@ -1,8 +1,10 @@
+import { InicioSesionPage } from './../inicio-sesion/inicio-sesion';
+
 import { EventosPage } from './../eventos/eventos';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseAuthProvider } from './../../providers/firebase-auth/firebase-auth';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Usuario } from '../../models/usuario.model';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
@@ -21,7 +23,7 @@ import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 })
 export class RegistroPage {
   registerForm: FormGroup;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider, public formBuilder:FormBuilder) {
+  constructor(public app: App, public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider, public formBuilder:FormBuilder) {
     this.registerForm = this.formBuilder.group({
       nombre: [''],
       email: [''],
@@ -45,7 +47,12 @@ export class RegistroPage {
     alert(this.authFirebase.getUserEmail());
   }
 
+
+
+
   ionViewDidLoad() {
+    
+    
     console.log('ionViewDidLoad RegistroPage');
   }
 

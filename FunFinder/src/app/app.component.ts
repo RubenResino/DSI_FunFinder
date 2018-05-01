@@ -1,3 +1,5 @@
+
+import { AngularFireDatabase } from 'angularfire2/database';
 import { InfoEventoPage } from './../pages/info-evento/info-evento';
 import { AngularFireModule } from 'angularfire2';
 
@@ -8,25 +10,35 @@ import { RegistroPage } from './../pages/registro/registro';
 
 import { CreateEventPage } from '../pages/create-event/create-event';
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, NavController, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { EventosPage } from '../pages/eventos/eventos';
 import { InicioSesionPage } from '../pages/inicio-sesion/inicio-sesion';
 import { AngularFireAuth } from 'angularfire2/auth';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = RegistroPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,  public authFirebase:FirebaseAuthProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+    });
+    authFirebase.afAuth.auth.onAuthStateChanged(user => {
+      if (user) {
+        this.rootPage = EventosPage;
+        
+      } else {
+        this.rootPage = InicioSesionPage;
+        
+      }
     });
     /*this.auth.afAuth.authState.subscribe(
       user => {
