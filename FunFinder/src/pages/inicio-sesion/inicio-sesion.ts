@@ -1,4 +1,4 @@
-import { EventosPage } from './../../../../FunFinder_Alpha/src/pages/eventos/eventos';
+import { EventosPage } from './../eventos/eventos';
 import { FirebaseAuthProvider } from './../../providers/firebase-auth/firebase-auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
