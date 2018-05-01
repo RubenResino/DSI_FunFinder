@@ -7,7 +7,7 @@ import { FirebaseAuthProvider } from './../providers/firebase-auth/firebase-auth
 import { RegistroPage } from './../pages/registro/registro';
 
 
-
+import { ComprarEventoPage } from '../pages/comprar-evento/comprar-evento';
 import { CreateEventPage } from '../pages/create-event/create-event';
 import { Component } from '@angular/core';
 import { Platform, NavController, Nav } from 'ionic-angular';
@@ -22,7 +22,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = RegistroPage;
+  rootPage:any = ComprarEventoPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,  public authFirebase:FirebaseAuthProvider) {
     platform.ready().then(() => {
@@ -36,7 +36,7 @@ export class MyApp {
         this.rootPage = EventosPage;
         
       } else {
-        this.rootPage = InicioSesionPage;
+        this.rootPage = ComprarEventoPage;
         
       }
     });

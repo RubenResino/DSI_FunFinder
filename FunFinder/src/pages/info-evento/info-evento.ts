@@ -18,7 +18,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'info-evento.html',
 })
 export class InfoEventoPage {
-  datosEvento: Evento;
+  datosEvento:Evento;
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider ) {
     this.datosEvento=this.dbFirebase.getEventoById(navParams.get('id'));
   }
