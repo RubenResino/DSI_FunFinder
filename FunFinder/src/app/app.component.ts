@@ -1,7 +1,6 @@
 import { InfoEventoPage } from './../pages/info-evento/info-evento';
 import { AngularFireModule } from 'angularfire2';
 
-import { HomePage } from './../pages/home/home';
 import { FirebaseAuthProvider } from './../providers/firebase-auth/firebase-auth';
 import { RegistroPage } from './../pages/registro/registro';
 
@@ -20,7 +19,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = EventosPage;
+  rootPage:any = RegistroPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

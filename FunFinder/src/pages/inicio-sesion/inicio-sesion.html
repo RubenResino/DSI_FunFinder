@@ -15,14 +15,14 @@
 
 <ion-content padding>
 
-  <form  >
+  <form (ngSubmit)="login()" [formGroup]="loginForm">
 	  <ion-item>
 	     <ion-label floating>Email</ion-label>
-	     <ion-input type="email" ></ion-input>
+	     <ion-input type="email" [formControl]="loginForm.controls['contraseña']"></ion-input>
 	  </ion-item>
 	  <ion-item>
-	     <ion-label floating>Contraseña</ion-label>
-	     <ion-input type="password" ></ion-input>
+			 <ion-label floating>Contraseña</ion-label>
+	     <ion-input type="password" [formControl]="loginForm.controls['contraseña']"></ion-input>
 	  </ion-item>
 	  <button ion-button type="submit" block>Iniciar Sesion</button>
   </form>

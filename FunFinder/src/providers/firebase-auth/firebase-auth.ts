@@ -19,17 +19,20 @@ export class FirebaseAuthProvider {
   }
 
   signInWithEmail(credentials) {
-		console.log('Sign in with email');
 		return this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);
   }
   
   
   signUp(credentials) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
+    return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, "Asdf1234");
   }
 
   get authenticated(): boolean {
     return this.user !== null;
+  }
+
+  getUserEmail(){
+    return this.user.email;
   }
 
 }

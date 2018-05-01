@@ -21,8 +21,8 @@ export class EventosPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider) {
   }
 
-  goEvent(id){
-    this.navCtrl.push(InfoEventoPage, {id});
+  goEvent(Id){
+    this.navCtrl.push(InfoEventoPage, {id: Id});
   }
 
   ionViewDidLoad() {
