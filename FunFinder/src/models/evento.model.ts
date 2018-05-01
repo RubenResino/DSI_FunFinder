@@ -7,7 +7,7 @@ export class Evento {
     public precio: number;
     public fecha: Date;
     public usuario: string;
-	
+	public plazasRestantes: number;
 	constructor()
 	{
 		this.id="";

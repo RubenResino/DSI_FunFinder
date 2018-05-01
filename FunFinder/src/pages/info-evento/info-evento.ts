@@ -23,8 +23,8 @@ export class InfoEventoPage {
     this.datosEvento=this.dbFirebase.getEventoById(navParams.get('id'));
   }
 
-  comprar(id){
-    this.navCtrl.push(ComprarEventoPage, {id});
+  comprar(Id){
+    this.navCtrl.push(ComprarEventoPage, {id:Id});
   }
 
   ionViewDidLoad() {

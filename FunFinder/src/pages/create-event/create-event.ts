@@ -1,3 +1,4 @@
+import { EventosCreadosPage } from './../eventos-creados/eventos-creados';
 import { FirebaseAuthProvider } from './../../providers/firebase-auth/firebase-auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -25,8 +26,8 @@ export class CreateEventPage {
       nombre: [''],
       descripcion: [''],
       plazas: [],
-      precio: []
-      ,fecha: []
+      precio: [],
+      fecha: []
     })
   }
 
@@ -35,13 +36,17 @@ export class CreateEventPage {
     datosevento.nombre=this.eventForm.controls['nombre'].value;
     datosevento.descripcion=this.eventForm.controls['descripcion'].value;
     datosevento.plazas=this.eventForm.controls['plazas'].value;
+    datosevento.plazasRestantes=this.eventForm.controls['plazas'].value;
     datosevento.precio=this.eventForm.controls['precio'].value;
     datosevento.fecha=this.eventForm.controls['fecha'].value;
     datosevento.usuario=this.authFirebase.getUser().uid;
 
     this.dbFirebase.guardaEvento(datosevento).then(res=>{
-			alert(datosevento.id+ " guardado en FB");
-		});
+			
+    });
+    
+    this.navCtrl.pop();
+    this.navCtrl.push(EventosCreadosPage);
   }
 
   ionViewDidLoad() {

@@ -1,3 +1,4 @@
+import { EventosCreadosPage } from './../pages/eventos-creados/eventos-creados';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { InfoEventoPage } from './../pages/info-evento/info-evento';
@@ -9,7 +10,7 @@ import { RegistroPage } from './../pages/registro/registro';
 
 import { ComprarEventoPage } from '../pages/comprar-evento/comprar-evento';
 import { CreateEventPage } from '../pages/create-event/create-event';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Platform, NavController, Nav, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -17,11 +18,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { EventosPage } from '../pages/eventos/eventos';
 import { InicioSesionPage } from '../pages/inicio-sesion/inicio-sesion';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { EventosCompradosPage } from '../pages/eventos-comprados/eventos-comprados';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
+  @ViewChild(Nav) nav;
   rootPage:any = InicioSesionPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,  public authFirebase:FirebaseAuthProvider, public menuCtrl: MenuController) {
@@ -63,23 +66,25 @@ export class MyApp {
   }
 
   misEntradas(){
-
+    this.nav.push(EventosCompradosPage);
   }
 
   misEventos(){
-
+    this.nav.push(EventosCreadosPage);
   }
 
   crearEvento(){
-
+    this.nav.push(CreateEventPage);
   }
 
   iniciarSesion(){
-
+    alert(this.rootPage);
+    this.nav.setRoot(InicioSesionPage);
   }
 
   registrarse(){
-
+    this.nav.setRoot(InicioSesionPage);
+    this.nav.push(RegistroPage);
   }
 }
 

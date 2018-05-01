@@ -1,3 +1,5 @@
+import { FirebaseAuthProvider } from './../../providers/firebase-auth/firebase-auth';
+import { FirebaseDbProvider } from './../../providers/firebase-db/firebase-db';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -15,11 +17,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EventosCompradosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+	listaEventos:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider) {
   }
 
+  /*goEvent(Id){
+    this.navCtrl.push(InfoEventoPage, {id: Id});
+  }*/
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EventosCompradosPage');
+    console.log('ionViewDidLoad EventosCreadosPage');
+    let id=this.authFirebase.getUser();
+    this.listaEventos=this.dbFirebase.getEventosByUid(id.uid);
   }
 
 }
