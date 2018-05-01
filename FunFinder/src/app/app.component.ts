@@ -7,7 +7,7 @@ import { FirebaseAuthProvider } from './../providers/firebase-auth/firebase-auth
 import { RegistroPage } from './../pages/registro/registro';
 
 
-
+import { ComprarEventoPage } from '../pages/comprar-evento/comprar-evento';
 import { CreateEventPage } from '../pages/create-event/create-event';
 import { Component } from '@angular/core';
 import { Platform, NavController, Nav, MenuController } from 'ionic-angular';
