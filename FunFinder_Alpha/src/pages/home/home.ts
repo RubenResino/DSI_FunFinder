@@ -21,7 +21,11 @@ export class HomePage {
 	  this.navCtrl.push(pagina);
   }
 
-  addCliente2()
+	addCliente2(){
+		alert(this.dbFirebase.getEventoById("1525019639853").descripcion);
+	}
+
+  addCliente()
   {
 		let datoscliente:Cliente=new Cliente();
 	  

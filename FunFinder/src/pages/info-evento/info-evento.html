@@ -17,7 +17,9 @@
   <img src="assets/imgs/logo.png"/>
   <h1>{{datosEvento.nombre}}</h1>
   <p>{{datosEvento.descripcion}}</p>
-  <p item-start>{{datosEvento.fecha | date:'dd-MM-yyyy'}}</p>
-  <p item-end>{{datosEvento.precio | number:'0.2-2'}} €</p>
-  <button ion-button block>Comprar</button>
+  <ion-item>
+    <p item-start>{{datosEvento.fecha | date:'dd-MM-yyyy'}}</p>
+    <p item-end>{{datosEvento.precio | number:'0.2-2'}} €</p>
+  </ion-item>
+  <button ion-button (click)="comprar(datosEvento.id)" block>Comprar</button>
 </ion-content>
