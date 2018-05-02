@@ -11,6 +11,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { AngularFireModule } from 'angularfire2';
+import { fireBaseConfig } from "./app.firebase.config";
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
 import { EventosPage } from '../pages/eventos/eventos';
@@ -19,15 +20,6 @@ import { EventosCompradosPage } from '../pages/eventos-comprados/eventos-comprad
 import { EventosCreadosPage } from '../pages/eventos-creados/eventos-creados';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-
-export const fireBaseConfig={
-    apiKey: "AIzaSyDWSsm2T47c7hpvSuBT93QpzhUJL7hpAUs",
-    authDomain: "dsi-funfinder.firebaseapp.com",
-    databaseURL: "https://dsi-funfinder.firebaseio.com",
-    projectId: "dsi-funfinder",
-    storageBucket: "dsi-funfinder.appspot.com",
-    messagingSenderId: "141145935893"
-  };
 
 @NgModule({
   declarations: [
