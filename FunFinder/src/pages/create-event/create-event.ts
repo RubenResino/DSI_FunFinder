@@ -20,7 +20,6 @@ import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 })
 export class CreateEventPage {
   eventForm: FormGroup;
-
   constructor(public navCtrl: NavController, public navParams: NavParams,public dbFirebase:FirebaseDbProvider, public formBuilder:FormBuilder, public authFirebase:FirebaseAuthProvider) {
     this.eventForm = this.formBuilder.group({
       nombre: [''],
