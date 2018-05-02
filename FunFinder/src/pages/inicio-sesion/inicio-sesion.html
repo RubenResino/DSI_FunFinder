@@ -16,6 +16,7 @@
 
 <ion-content padding>
 
+	<img id="ffImage" src="assets/imgs/logoxd.png">
 	<button ion-button (click)="showIniciar()" block><div *ngIf="mostrarIniciar; then cancelar else iniciar"></div><ng-template #iniciar>Iniciar sesión</ng-template><ng-template #cancelar>Cancelar</ng-template></button>
 	<form (ngSubmit)="login()" [formGroup]="loginForm" *ngIf="mostrarIniciar">
 		<ion-item>
