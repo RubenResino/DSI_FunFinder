@@ -21,7 +21,7 @@ import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 export class InicioSesionPage {
   loginForm: FormGroup;
   mostrarIniciar:Boolean = false;
-  signupError: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider, public formBuilder:FormBuilder, public alertCtrl: AlertController) {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],

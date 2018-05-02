@@ -20,12 +20,20 @@ import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 })
 export class CreateEventPage {
   eventForm: FormGroup;
+  vprecio=[];
+  vplazas=[];
   constructor(public navCtrl: NavController, public navParams: NavParams,public dbFirebase:FirebaseDbProvider, public formBuilder:FormBuilder, public authFirebase:FirebaseAuthProvider) {
+    this.vprecio.push(Validators.required);
+    this.vprecio.push(Validators.min(0.01));
+    this.vprecio.push(Validators.pattern("(^[0-9]*[.,]{1}[0-9]{1,2}$)|(^[0-9]+[.,]{1}[0-9]{0,2}$)|(^[0-9]+$)"));
+    this.vplazas.push(Validators.required);
+    this.vplazas.push(Validators.min(1));
+    this.vplazas.push(Validators.pattern("^[0-9]+$"));
     this.eventForm = this.formBuilder.group({
       nombre: ['', Validators.required],
       descripcion: [''],
-      plazas: ['',Validators.min(1)],
-      precio: ['',Validators.required],
+      plazas: ['',Validators.compose(this.vplazas)],
+      precio: ['',Validators.compose(this.vprecio)],
       fecha: ['',Validators.required],
       imagen: ['']
     })

@@ -27,15 +27,17 @@ export class ComprarEventoPage {
   precioFinal: number = 0;
   entrada:Entrada;
   cantidad:number=0;
-
+  vplazas=[];
   constructor(public navCtrl: NavController, public navParams: NavParams,public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider,public formBuilder:FormBuilder) 
   {
-    
+    this.vplazas.push(Validators.required);
+    this.vplazas.push(Validators.min(1));
+    this.vplazas.push(Validators.pattern("^[0-9]+$"));
     this.datosEvento=this.dbFirebase.getEventoById(navParams.get('id'));
     //this.entrada=this.dbFirebase.getEntradaById("1525217407469rdTPDmcruSbdQFRBqjKXeayu4q53");
   	this.buyForm = this.formBuilder.group
   	({
-      Entradas: [0,Validators.required],
+      Entradas: [0,Validators.compose(this.vplazas)],
     })
   
   }
