@@ -1,1 +1,5 @@
-Proyecto FunFinder para la asignatura Diseño de Sistemas Interactivos. Ingeniería Informática UC3M.
+Proyecto FunFinder para la asignatura Diseï¿½o de Sistemas Interactivos. Ingenierï¿½a Informï¿½tica UC3M.
+
+La carpeta node-modules no se puede subir, se bloquea o tarda demasiado.
+
+Para instalar las dependencias npm install las instala todas.
