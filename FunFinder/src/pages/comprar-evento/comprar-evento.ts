@@ -35,7 +35,7 @@ export class ComprarEventoPage {
     //this.entrada=this.dbFirebase.getEntradaById("1525217407469rdTPDmcruSbdQFRBqjKXeayu4q53");
   	this.buyForm = this.formBuilder.group
   	({
-      Entradas: [Validators.required],
+      Entradas: [0,Validators.required],
     })
   
   }
