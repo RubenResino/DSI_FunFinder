@@ -14,23 +14,26 @@
 
 
 <ion-content padding>
-	<form (ngSubmit)="buyEvent()" [formGroup]="buyForm">
 		<h1>{{datosEvento.nombre}}</h1>
-	  	<p>{{datosEvento.descripcion}}</p>
-	  	<ion-item>
-		    <p>{{datosEvento.fecha | date:'dd-MM-yyyy'}}</p>
+	  <ion-item>
+			<ion-label>Fecha</ion-label>
+		  <p item-content>{{datosEvento.fecha | date:'dd-MM-yyyy'}}</p>
 		</ion-item>
 		<ion-item>
-		    <p>{{datosEvento.precio | number:'0.2-2'}} €</p>
-	  	</ion-item>
-	  	<ion-item>
-	      <ion-label>Entradas</ion-label>
-	      <ion-input type="number" [formControl]="buyForm.controls['Entradas']"></ion-input>
-	    </ion-item>
-	    <button ion-button type="submit" block>Aceptar</button>
+			<ion-label>Precio</ion-label>
+		  <p item-content>{{datosEvento.precio | number:'0.2-2'}} €</p>
+		</ion-item>
+	<form (ngSubmit)="buyEvent()" [formGroup]="buyForm">
+
+	  <ion-item>
+	    <ion-label>Entradas</ion-label>
+	    <ion-input item-content type="number" min=0 [formControl]="buyForm.controls['Entradas']" (change)="changeEntradas()"></ion-input>
+		</ion-item>
+		<ion-item>
+				<ion-label>Precio Total</ion-label>
+				<p item-content>{{precioFinal | number:'0.2-2'}} €</p>
+			</ion-item>
+		<button ion-button type="submit" block>Aceptar</button>
 	</form>
-	<ion-item>
-	    	<ion-label>Precio Total</ion-label>
-	    	<ion-input [formControl]="buyForm.['Total']"></ion-input>
-	    </ion-item>
+	
 </ion-content>

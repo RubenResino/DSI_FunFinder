@@ -20,6 +20,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class EventosCreadosPage {
 	listaEventos:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider) {
+    
   }
 
   goEvent(Id){
@@ -27,9 +28,13 @@ export class EventosCreadosPage {
   }
 
   ionViewDidLoad() {
+    let uid=this.authFirebase.getUser().uid;
+    this.dbFirebase.getEventosByUid(uid).subscribe(listaEventos=>{this.listaEventos=listaEventos;});
+
+    //alert(this.listaEventos.descripcion);
     console.log('ionViewDidLoad EventosCreadosPage');
-    let id=this.authFirebase.getUser();
-    this.listaEventos=this.dbFirebase.getEventosByUid(id.uid);
+    
+    
   }
 
 }

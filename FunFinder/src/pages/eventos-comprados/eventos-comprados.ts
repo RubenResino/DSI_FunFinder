@@ -17,7 +17,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EventosCompradosPage {
 
-	listaEventos:any;
+	listaEntradas:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider) {
   }
 
@@ -27,8 +27,8 @@ export class EventosCompradosPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventosCreadosPage');
-    let id=this.authFirebase.getUser();
-    this.listaEventos=this.dbFirebase.getEventosByUid(id.uid);
+    let uid=this.authFirebase.getUser().uid;
+    this.dbFirebase.getEntradasByUid(uid).subscribe(listaEntradas=>{this.listaEntradas=listaEntradas;});
   }
 
 }

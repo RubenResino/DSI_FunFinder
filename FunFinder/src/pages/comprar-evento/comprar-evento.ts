@@ -1,3 +1,7 @@
+import { FirebaseAuthProvider } from './../../providers/firebase-auth/firebase-auth';
+
+
+import { Entrada } from './../../models/entrada.model';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from './../../providers/firebase-db/firebase-db';
@@ -20,24 +24,53 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class ComprarEventoPage {
   datosEvento:Evento;
   buyForm: FormGroup;
+  precioFinal: number = 0;
+  entrada:Entrada;
+  cantidad:number=0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public dbFirebase:FirebaseDbProvider,public formBuilder:FormBuilder) 
+  constructor(public navCtrl: NavController, public navParams: NavParams,public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider,public formBuilder:FormBuilder) 
   {
-  	this.datosEvento=this.dbFirebase.getEventoById(navParams.get('id'));
+    
+    this.datosEvento=this.dbFirebase.getEventoById(navParams.get('id'));
+    //this.entrada=this.dbFirebase.getEntradaById("1525217407469rdTPDmcruSbdQFRBqjKXeayu4q53");
   	this.buyForm = this.formBuilder.group
   	({
-      Entradas: [''],
-      Total: ['']
+      Entradas: [],
     })
   
   }
 
 buyEvent()
 {
-	this.buyForm.controls['Total']=this.buyForm.controls['Entradas'].value;
+  let uid=this.authFirebase.getUser().uid;
+  let datosentrada:Entrada=new Entrada();
+  datosentrada.nombre=this.datosEvento.nombre;
+  datosentrada.uid=uid;
+  datosentrada.eid=this.datosEvento.id;
+  datosentrada.fecha=this.datosEvento.fecha;
+  datosentrada.cantidad=0;
+  datosentrada.cantidad=datosentrada.cantidad*1+this.buyForm.controls['Entradas'].value*1;
+  if(this.entrada!=null){
+    datosentrada.cantidad=datosentrada.cantidad*1+this.entrada.cantidad*1;
+  }
+  
+  this.dbFirebase.guardaEntrada(datosentrada).then(res=>{
+    
+  });
+  
+  this.navCtrl.pop();
+  this.navCtrl.pop();
+}
+
+changeEntradas(){
+  this.precioFinal=this.buyForm.controls['Entradas'].value;
 }
 
   ionViewDidLoad() {
+    let uid=this.authFirebase.getUser().uid;
+    let eid=this.datosEvento.id;
+    this.dbFirebase.getEntradaById(eid+uid).subscribe(entrada=>{this.entrada=entrada;});
+
     console.log('ionViewDidLoad ComprarEventoPage');
   }
 
