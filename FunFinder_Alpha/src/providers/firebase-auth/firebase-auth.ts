@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import AuthProvider = firebase.auth.AuthProvider;
+//import AuthProvider = firebase.auth.AuthProvider;
 
 /*
   Generated class for the FirebaseAuthProvider provider.
@@ -11,15 +11,12 @@ import AuthProvider = firebase.auth.AuthProvider;
 */
 @Injectable()
 export class FirebaseAuthProvider {
-  private user: firebase.User;
+  
   constructor(public afAuth: AngularFireAuth) {
-		afAuth.authState.subscribe(user => {
-			this.user = user;
-		});
+
   }
 
   signInWithEmail(credentials) {
-		console.log('Sign in with email');
 		return this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);
   }
   
@@ -28,8 +25,20 @@ export class FirebaseAuthProvider {
     return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
   }
 
-  get authenticated(): boolean {
-    return this.user !== null;
+
+  getUser(){
+
+    return firebase.auth().currentUser;
+    /*
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        alert(user.uid);
+        return user;
+      } else {
+        alert(2);
+        return null;
+      }
+    });*/
   }
 
 }

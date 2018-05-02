@@ -1,7 +1,8 @@
+import { Entrada } from './../../models/entrada.model';
 import { Usuario } from './../../models/usuario.model';
 //import { HttpClient } from '@angular/common/http';
 import { AngularFireDatabase} from 'angularfire2/database';
-import { Cliente } from '../../models/cliente.model';
+
 import { Evento } from '../../models/evento.model';
 import { Injectable } from '@angular/core';
 
@@ -34,19 +35,19 @@ guardaUsuario(usuario:Usuario) {
 	return this.afDB.database.ref('usuarios/'+usuario.id).set(usuario);
 }
 
-guardaCliente(cliente:Cliente) {
-	if (cliente.id=='') {
-		cliente.id = ""+Date.now();
-		}
+guardaEntrada(entrada:Entrada) {
 
-	return this.afDB.database.ref('clientes/'+cliente.id).set(cliente);
+	if (entrada.id=='') {
+		entrada.id = entrada.eid+entrada.uid;
+	}
+
+	return this.afDB.database.ref('entradas/'+entrada.id).set(entrada);;
 }
+
 
 delCliente(id) {
 	this.afDB.database.ref('clientes/'+id).remove();
 }
-
-private clientesRef=this.afDB.list<Cliente>('clientes');
 
 private eventosRef=this.afDB.list<Evento>('eventos');
 
@@ -60,16 +61,45 @@ getEventos() {
 	return this.eventosRef.valueChanges();
 }
 
-getClientes() {
-	return this.clientesRef.valueChanges();
-}
-
 getEventoById(id) {
 	let evento:Evento;
 	this.afDB.database.ref('eventos/'+id).once('value', function(snapshot){
 		evento=snapshot.val();
-	});
+	}, error =>{});
+
 	return evento;
+}
+
+getEventosByUid(uid) {
+	/*let eventos:any;
+	this.afDB.database.ref('eventos').orderByChild('usuario').equalTo(uid).once('value', function(snapshot){
+		eventos=snapshot.val();
+	});
+*/
+	let eventos=this.afDB.list<Evento>('eventos', ref=> ref.orderByChild('usuario').equalTo(uid));
+
+	return eventos.valueChanges();
+	
+}
+
+getEntradasByUid(uid){
+	let entradas=this.afDB.list<Entrada>('entradas', ref=> ref.orderByChild('uid').equalTo(uid));
+
+	return entradas.valueChanges();
+}
+
+getEntradaById(id){
+	let entrada=this.afDB.object<Entrada>('entradas/'+id);
+
+	return entrada.valueChanges();
+	/*let entrada:Entrada;
+	this.afDB.database.ref('entradas/'+id).once('value', function(snapshot){
+		entrada=snapshot.val();
+		alert(entrada.cantidad);
+	});*/
+	
+	
+	//return entrada;
 }
 
 }

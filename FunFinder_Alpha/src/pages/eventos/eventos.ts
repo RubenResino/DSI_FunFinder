@@ -1,3 +1,4 @@
+import { EventosCreadosPage } from './../eventos-creados/eventos-creados';
 import { FirebaseDbProvider } from './../../providers/firebase-db/firebase-db';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -20,14 +21,18 @@ export class EventosPage {
 	listaEventos:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider) {
   }
+  
+  a(){
+    this.navCtrl.push(EventosCreadosPage);
+  }
 
-  goEvent(id){
-    this.navCtrl.push(InfoEventoPage, {id});
+  goEvent(Id){
+    this.navCtrl.push(InfoEventoPage, {id: Id});
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventosPage');
-    this.dbFirebase.getEventos().subscribe(listaEventos=>{this.listaEventos=listaEventos;});
+    this.dbFirebase.getEventos().subscribe(listaEventos=>{this.listaEventos=listaEventos;}, error =>{});
   }
 
 }
