@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>registro</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Registro</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -29,8 +29,8 @@
     </ion-item>
     <ion-item>
       <ion-label>Telefono</ion-label>
-      <ion-input type="tel"  [formControl]="registerForm.controls['telefono']"></ion-input>
+      <ion-input type="tel" pattern="^[0-9]+$"  [formControl]="registerForm.controls['telefono']"></ion-input>
     </ion-item>
-    <button ion-button type="submit" block>Registrarse</button>
+    <button [disabled]="!registerForm.valid" ion-button type="submit" block>Registrarse</button>
   </form>
 </ion-content>

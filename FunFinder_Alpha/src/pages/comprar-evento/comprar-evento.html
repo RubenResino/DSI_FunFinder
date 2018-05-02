@@ -1,0 +1,39 @@
+<!--
+  Generated template for the ComprarEventoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Comprar entrada</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+		<h1>{{datosEvento.nombre}}</h1>
+	  <ion-item>
+			<ion-label>Fecha</ion-label>
+		  <p item-content>{{datosEvento.fecha | date:'dd-MM-yyyy'}}</p>
+		</ion-item>
+		<ion-item>
+			<ion-label>Precio</ion-label>
+		  <p item-content>{{datosEvento.precio | number:'0.2-2'}} €</p>
+		</ion-item>
+	<form (ngSubmit)="buyEvent()" [formGroup]="buyForm">
+
+	  <ion-item>
+	    <ion-label>Entradas</ion-label>
+	    <ion-input item-content type="number" min=0 [formControl]="buyForm.controls['Entradas']" (change)="changeEntradas()"></ion-input>
+		</ion-item>
+		<ion-item>
+				<ion-label>Precio Total</ion-label>
+				<p item-content>{{precioFinal | number:'0.2-2'}} €</p>
+			</ion-item>
+		<button ion-button type="submit" [disabled]="!buyForm.valid" block>Aceptar</button>
+	</form>
+	
+</ion-content>

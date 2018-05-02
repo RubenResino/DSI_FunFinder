@@ -6,24 +6,30 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>InicioSesion</ion-title>
+  <ion-navbar color="primary">
+		<!--<img width="80" height="80" src="assets/imgs/logoxd.png">-->
+    <ion-title text-center>FunFinder</ion-title>
   </ion-navbar>
-
+  
 </ion-header>
 
 
 <ion-content padding>
 
-  <form  >
-	  <ion-item>
-	     <ion-label floating>Email</ion-label>
-	     <ion-input type="email" ></ion-input>
-	  </ion-item>
-	  <ion-item>
-	     <ion-label floating>Contraseña</ion-label>
-	     <ion-input type="password" ></ion-input>
-	  </ion-item>
-	  <button ion-button type="submit" block>Iniciar Sesion</button>
-  </form>
+	<img id="ffImage" src="assets/imgs/logoxd.png">
+	<button ion-button (click)="showIniciar()" block><div *ngIf="mostrarIniciar; then cancelar else iniciar"></div><ng-template #iniciar>Iniciar sesión</ng-template><ng-template #cancelar>Cancelar</ng-template></button>
+	<form (ngSubmit)="login()" [formGroup]="loginForm" *ngIf="mostrarIniciar">
+		<ion-item>
+				<ion-label floating>Email</ion-label>
+				<ion-input type="email" [formControl]="loginForm.controls['email']"></ion-input>
+		</ion-item>
+		<ion-item>
+				<ion-label floating>Contraseña</ion-label>
+				<ion-input type="password" [formControl]="loginForm.controls['contraseña']"></ion-input>
+		</ion-item>
+		<button ion-button type="submit" [disabled]="!loginForm.valid" block>Iniciar Sesion</button>
+	</form>
+	<button ion-button block *ngIf="!mostrarIniciar" (click)="Registrarse()">Registrarse</button>
+	<button ion-button block *ngIf="!mostrarIniciar" (click)="logSinUser()">Iniciar sin usuario</button>
+  
 </ion-content>

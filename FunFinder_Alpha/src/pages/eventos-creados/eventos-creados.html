@@ -1,5 +1,5 @@
 <!--
-  Generated template for the EventosPage page.
+  Generated template for the EventosCreadosPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,19 +7,14 @@
 <ion-header>
 
   <ion-navbar color="primary">
-
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>FunFinder</ion-title>
+    <ion-title>Eventos Creados</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  
-  <ion-card (click)="goEvent(evento.id)" *ngFor="let evento of listaEventos ">
+  <ion-card *ngFor="let evento of listaEventos ">
     <img src={{evento.imagen}}/>
     <ion-card-content>
       <ion-card-title>

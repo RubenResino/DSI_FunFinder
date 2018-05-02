@@ -1,3 +1,4 @@
+import { ComprarEventoPage } from './../comprar-evento/comprar-evento';
 import { FirebaseDbProvider } from './../../providers/firebase-db/firebase-db';
 import { Evento } from './../../models/evento.model';
 import { Component } from '@angular/core';
@@ -17,9 +18,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'info-evento.html',
 })
 export class InfoEventoPage {
-  datosEvento: Evento;
+  datosEvento:Evento;
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider ) {
     this.datosEvento=this.dbFirebase.getEventoById(navParams.get('id'));
+  }
+
+  comprar(Id){
+    this.navCtrl.push(ComprarEventoPage, {id:Id});
   }
 
   ionViewDidLoad() {
