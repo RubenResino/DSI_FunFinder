@@ -27,7 +27,8 @@ export class CreateEventPage {
       descripcion: [''],
       plazas: [],
       precio: [],
-      fecha: []
+      fecha: [],
+      imagen: []
     })
   }
 
@@ -39,6 +40,7 @@ export class CreateEventPage {
     datosevento.plazasRestantes=this.eventForm.controls['plazas'].value;
     datosevento.precio=this.eventForm.controls['precio'].value;
     datosevento.fecha=this.eventForm.controls['fecha'].value;
+    datosevento.imagen=this.eventForm.controls['imagen'].value;
     datosevento.usuario=this.authFirebase.getUser().uid;
 
     this.dbFirebase.guardaEvento(datosevento).then(res=>{
