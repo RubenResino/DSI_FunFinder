@@ -28,7 +28,7 @@ export class CreateEventPage {
       plazas: [],
       precio: [],
       fecha: [],
-      imagen: []
+      imagen: ['']
     })
   }
 
