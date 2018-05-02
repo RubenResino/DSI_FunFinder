@@ -38,6 +38,10 @@
       <ion-label>Fecha</ion-label>
       <ion-input type="date" [formControl]="eventForm.controls['fecha']"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label>Imagen del evento</ion-label>
+      <ion-input type="file" [formControl]="eventForm.controls['imagen']"></ion-input>
+    </ion-item>
     <button ion-button type="submit" block>Crear evento</button>
   </form>
 
