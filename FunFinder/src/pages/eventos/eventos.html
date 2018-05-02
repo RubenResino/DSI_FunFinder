@@ -20,7 +20,7 @@
 <ion-content padding>
   
   <ion-card (click)="goEvent(evento.id)" *ngFor="let evento of listaEventos ">
-    <img src={{evento.imagen}}/>
+    <img src="{{evento.imagen}}"/>
     <ion-card-content>
       <ion-card-title>
           {{evento.nombre}}

@@ -8,6 +8,7 @@ export class Evento {
     public fecha: Date;
     public usuario: string;
 	public plazasRestantes: number;
+    public imagen: string;
 	constructor()
 	{
 		this.id="";
