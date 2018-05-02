@@ -2,7 +2,9 @@ page-inicio-sesion {
 	#ffImage {
 		padding: 10px;
 	}
-	#mainDiv{
+	ion-content {
 	 background-image: url("assets/imgs/fondo.jpg");
+	 background-repeat: no-repeat;
+	 background-size:cover;
 	}
 }
