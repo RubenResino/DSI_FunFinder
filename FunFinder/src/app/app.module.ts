@@ -19,7 +19,7 @@ import { FirebaseAuthProvider } from '../providers/firebase-auth/firebase-auth';
 import { EventosCompradosPage } from '../pages/eventos-comprados/eventos-comprados';
 import { EventosCreadosPage } from '../pages/eventos-creados/eventos-creados';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
+import { OneSignal } from '@ionic-native/onesignal';
 
 @NgModule({
   declarations: [
@@ -55,10 +55,10 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    OneSignal,
     FirebaseDbProvider,
-    FirebaseAuthProvider
-
+    FirebaseAuthProvider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
     
   ]
 })
