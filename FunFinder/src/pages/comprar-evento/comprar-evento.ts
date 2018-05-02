@@ -63,7 +63,7 @@ buyEvent()
 }
 
 changeEntradas(){
-  this.precioFinal=this.buyForm.controls['Entradas'].value;
+  this.precioFinal=this.buyForm.controls['Entradas'].value*this.datosEvento.precio;
 }
 
   ionViewDidLoad() {
