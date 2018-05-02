@@ -3,7 +3,7 @@ import { EventosPage } from './../eventos/eventos';
 import { FirebaseAuthProvider } from './../../providers/firebase-auth/firebase-auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 
 /**
@@ -21,10 +21,11 @@ import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 export class InicioSesionPage {
   loginForm: FormGroup;
   mostrarIniciar:Boolean = false;
+  signupError: string;
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider, public formBuilder:FormBuilder, public alertCtrl: AlertController) {
     this.loginForm = this.formBuilder.group({
-      email: [''],
-      contraseña: ['']
+      email: ['', Validators.required],
+      contraseña: ['', Validators.required]
     })
   }
 
@@ -38,13 +39,12 @@ export class InicioSesionPage {
 			email: data.email,
 			password: data.contraseña
     };
-    alert(credentials.email);
 		this.authFirebase.signInWithEmail(credentials)
 			.then(
 				() => {
           this.navCtrl.setRoot(EventosPage);
-          
-        }
+        },
+        error => {alert(error.message);}
 			);
 
   }

@@ -5,7 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseAuthProvider } from './../../providers/firebase-auth/firebase-auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Usuario } from '../../models/usuario.model';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 
@@ -23,12 +23,15 @@ import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 })
 export class RegistroPage {
   registerForm: FormGroup;
-  constructor(public app: App, public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider, public formBuilder:FormBuilder) {
+  vNombre = [];
+  constructor(public app: App, public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider, public formBuilder:FormBuilder) {                    
+      this.vNombre.push(Validators.required);
+      this.vNombre.push(Validators.minLength(2));
     this.registerForm = this.formBuilder.group({
-      nombre: [''],
-      email: [''],
-      contraseña: [''],
-      telefono: [''],
+      nombre: ['', Validators.compose(this.vNombre)],
+      email: ['', Validators.required],
+      contraseña: ['', Validators.required],
+      telefono: ['', Validators.required]
     })
   }
 
@@ -43,6 +46,7 @@ export class RegistroPage {
     //alert(this.authFirebase.getUserEmail());
     this.authFirebase.signUp(credentials).then(
       () => this.navCtrl.setRoot(EventosPage),
+      error => {alert(error.message);}
     );
   }
 

@@ -28,11 +28,11 @@
     </ion-item>
     <ion-item>
       <ion-label>Plazas</ion-label>
-      <ion-input type="number"  [formControl]="eventForm.controls['plazas']"></ion-input>
+      <ion-input type="number" min=0  [formControl]="eventForm.controls['plazas']"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Precio</ion-label>
-      <ion-input type="number"  [formControl]="eventForm.controls['precio']"></ion-input>
+      <ion-input type="number" min=0  [formControl]="eventForm.controls['precio']"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Fecha</ion-label>
@@ -42,7 +42,7 @@
       <ion-label floating>URl de la imagen del evento</ion-label>
       <ion-input type="text" [formControl]="eventForm.controls['imagen']"></ion-input>
     </ion-item>
-    <button ion-button type="submit" block>Crear evento</button>
+    <button ion-button type="submit" [disabled]="!registerForm.valid" block>Crear evento</button>
   </form>
 
 </ion-content>

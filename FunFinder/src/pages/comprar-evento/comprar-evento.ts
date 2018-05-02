@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from './../../providers/firebase-db/firebase-db';
 import { Evento } from './../../models/evento.model';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 /**
@@ -35,7 +35,7 @@ export class ComprarEventoPage {
     //this.entrada=this.dbFirebase.getEntradaById("1525217407469rdTPDmcruSbdQFRBqjKXeayu4q53");
   	this.buyForm = this.formBuilder.group
   	({
-      Entradas: [],
+      Entradas: [Validators.required],
     })
   
   }

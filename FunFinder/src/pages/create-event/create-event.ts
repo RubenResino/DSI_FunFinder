@@ -2,7 +2,7 @@ import { EventosCreadosPage } from './../eventos-creados/eventos-creados';
 import { FirebaseAuthProvider } from './../../providers/firebase-auth/firebase-auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Evento } from '../../models/evento.model';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 
@@ -22,11 +22,11 @@ export class CreateEventPage {
   eventForm: FormGroup;
   constructor(public navCtrl: NavController, public navParams: NavParams,public dbFirebase:FirebaseDbProvider, public formBuilder:FormBuilder, public authFirebase:FirebaseAuthProvider) {
     this.eventForm = this.formBuilder.group({
-      nombre: [''],
+      nombre: ['', Validators.required],
       descripcion: [''],
-      plazas: [],
-      precio: [],
-      fecha: [],
+      plazas: [Validators.required],
+      precio: [Validators.required],
+      fecha: [Validators.required],
       imagen: ['']
     })
   }
