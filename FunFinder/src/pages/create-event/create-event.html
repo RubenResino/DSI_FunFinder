@@ -39,10 +39,10 @@
       <ion-input type="date" [formControl]="eventForm.controls['fecha']"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>URl de la imagen del evento</ion-label>
+      <ion-label floating>URL de la imagen del evento</ion-label>
       <ion-input type="text" [formControl]="eventForm.controls['imagen']"></ion-input>
     </ion-item>
-    <button ion-button type="submit" [disabled]="!createForm.valid" block>Crear evento</button>
+    <button ion-button type="submit" [disabled]="!eventForm.valid" block>Crear evento</button>
   </form>
 
 </ion-content>
