@@ -89,7 +89,6 @@ export class MyApp {
   }
 
   iniciarSesion(){
-    alert(this.rootPage);
     this.nav.setRoot(InicioSesionPage);
   }
 

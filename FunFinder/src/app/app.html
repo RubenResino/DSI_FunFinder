@@ -1,4 +1,4 @@
-<ion-menu id="authenticated" [content]="mycontent" type="push" swipeEnabled="false" persistent="false">
+<ion-menu id="authenticated" [content]="mycontent" type="push" persistent="false">
     <ion-header>
         <ion-toolbar color="primary">
             <ion-title>FunFinder</ion-title>
@@ -16,6 +16,11 @@
     </ion-content>
 </ion-menu>
 <ion-menu id="unauthenticated" [content]="mycontent" type="push" swipeEnabled="false" persistent="false">
+        <ion-header>
+                <ion-toolbar color="primary">
+                    <ion-title>FunFinder</ion-title>
+                </ion-toolbar>
+            </ion-header>
         <ion-content>
             <ion-list>
                 <button ion-item menuClose (click)="iniciarSesion()" block>Iniciar sesión</button>

@@ -22,7 +22,7 @@
       </ion-card-title>
       <ion-item>
         <p item-start>{{evento.fecha | date:'dd-MM-yyyy'}}</p>
-        <p item-end>{{evento.precio | number:'0.2-2'}} €</p>
+        <p item-end>Entradas vendidas: {{evento.plazas-evento.plazasRestantes | number: 1}}</p>
       </ion-item>
     </ion-card-content>
   </ion-card>

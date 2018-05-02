@@ -27,7 +27,7 @@
 
 	  <ion-item>
 	    <ion-label>Entradas</ion-label>
-	    <ion-input item-content type="number" min=0 [formControl]="buyForm.controls['Entradas']" (change)="changeEntradas()"></ion-input>
+	    <ion-input item-content type="number" min=0 max={{datosEvento.plazasRestantes}} [formControl]="buyForm.controls['Entradas']" (change)="changeEntradas()"></ion-input>
 		</ion-item>
 		<ion-item>
 				<ion-label>Precio Total</ion-label>

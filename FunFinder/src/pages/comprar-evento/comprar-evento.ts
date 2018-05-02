@@ -30,10 +30,12 @@ export class ComprarEventoPage {
   vplazas=[];
   constructor(public navCtrl: NavController, public navParams: NavParams,public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider,public formBuilder:FormBuilder) 
   {
+    this.datosEvento=this.dbFirebase.getEventoById(navParams.get('id'));
     this.vplazas.push(Validators.required);
     this.vplazas.push(Validators.min(1));
+    this.vplazas.push(Validators.max(this.datosEvento.plazasRestantes));
     this.vplazas.push(Validators.pattern("^[0-9]+$"));
-    this.datosEvento=this.dbFirebase.getEventoById(navParams.get('id'));
+    
     //this.entrada=this.dbFirebase.getEntradaById("1525217407469rdTPDmcruSbdQFRBqjKXeayu4q53");
   	this.buyForm = this.formBuilder.group
   	({
@@ -46,6 +48,7 @@ buyEvent()
 {
   let uid=this.authFirebase.getUser().uid;
   let datosentrada:Entrada=new Entrada();
+  let datosevento:Evento=this.datosEvento;
   datosentrada.nombre=this.datosEvento.nombre;
   datosentrada.uid=uid;
   datosentrada.eid=this.datosEvento.id;
@@ -56,8 +59,13 @@ buyEvent()
     datosentrada.cantidad=datosentrada.cantidad*1+this.entrada.cantidad*1;
   }
   
+  datosevento.plazasRestantes=datosevento.plazasRestantes*1-this.buyForm.controls['Entradas'].value*1;
   this.dbFirebase.guardaEntrada(datosentrada).then(res=>{
     
+  }, error =>{});
+
+  this.dbFirebase.guardaEvento(datosevento).then(res=>{
+			
   }, error =>{});
   
   this.navCtrl.pop();
