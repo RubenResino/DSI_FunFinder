@@ -11,7 +11,7 @@ import { RegistroPage } from './../pages/registro/registro';
 import { ComprarEventoPage } from '../pages/comprar-evento/comprar-evento';
 import { CreateEventPage } from '../pages/create-event/create-event';
 import { Component, ViewChild } from '@angular/core';
-import { Platform, NavController, Nav, MenuController } from 'ionic-angular';
+import { Platform, NavController, Nav, MenuController, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
