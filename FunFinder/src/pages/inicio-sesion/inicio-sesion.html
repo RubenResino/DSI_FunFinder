@@ -14,7 +14,7 @@
 </ion-header>
 
 
-<ion-content id="mainDiv" padding>
+<ion-content padding class="mainDiv">
 
 	<img id="ffImage" src="assets/imgs/logoxd.png">
 	<button ion-button (click)="showIniciar()" block><div *ngIf="mostrarIniciar; then cancelar else iniciar"></div><ng-template #iniciar>Iniciar sesión</ng-template><ng-template #cancelar>Cancelar</ng-template></button>
