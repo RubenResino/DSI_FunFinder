@@ -16,7 +16,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'eventos-comprados.html',
 })
 export class EventosCompradosPage {
-
 	listaEntradas:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public authFirebase:FirebaseAuthProvider) {
   }

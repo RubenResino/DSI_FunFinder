@@ -8,7 +8,6 @@ export class Entrada {
     public nombre: string;
     public fecha: Date;
     public cantidad: number;
-	
 	constructor()
 	{
 		this.id="";
