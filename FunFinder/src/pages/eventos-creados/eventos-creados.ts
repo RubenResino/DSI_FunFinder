@@ -29,7 +29,7 @@ export class EventosCreadosPage {
 
   ionViewDidLoad() {
     let uid=this.authFirebase.getUser().uid;
-    this.dbFirebase.getEventosByUid(uid).subscribe(listaEventos=>{this.listaEventos=listaEventos;});
+    this.dbFirebase.getEventosByUid(uid).subscribe(listaEventos=>{this.listaEventos=listaEventos;}, error =>{});
 
     //alert(this.listaEventos.descripcion);
     console.log('ionViewDidLoad EventosCreadosPage');

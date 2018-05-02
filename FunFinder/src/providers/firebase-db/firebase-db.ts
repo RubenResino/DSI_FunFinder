@@ -65,7 +65,7 @@ getEventoById(id) {
 	let evento:Evento;
 	this.afDB.database.ref('eventos/'+id).once('value', function(snapshot){
 		evento=snapshot.val();
-	});
+	}, error =>{});
 
 	return evento;
 }

@@ -58,7 +58,7 @@ buyEvent()
   
   this.dbFirebase.guardaEntrada(datosentrada).then(res=>{
     
-  });
+  }, error =>{});
   
   this.navCtrl.pop();
   this.navCtrl.pop();
@@ -71,8 +71,7 @@ changeEntradas(){
   ionViewDidLoad() {
     let uid=this.authFirebase.getUser().uid;
     let eid=this.datosEvento.id;
-    this.dbFirebase.getEntradaById(eid+uid).subscribe(entrada=>{this.entrada=entrada;});
-
+    this.dbFirebase.getEntradaById(eid+uid).subscribe(entrada=>{this.entrada=entrada;}, error =>{});
     console.log('ionViewDidLoad ComprarEventoPage');
   }
 

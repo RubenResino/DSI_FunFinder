@@ -1,12 +1,12 @@
-import { InicioSesionPage } from './../inicio-sesion/inicio-sesion';
+//import { InicioSesionPage } from './../inicio-sesion/inicio-sesion';
 
 import { EventosPage } from './../eventos/eventos';
-import { AngularFireAuth } from 'angularfire2/auth';
+//import { AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseAuthProvider } from './../../providers/firebase-auth/firebase-auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Usuario } from '../../models/usuario.model';
+//import { Usuario } from '../../models/usuario.model';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 
 /**

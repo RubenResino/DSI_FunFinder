@@ -1,23 +1,23 @@
 import { EventosCreadosPage } from './../pages/eventos-creados/eventos-creados';
 
-import { AngularFireDatabase } from 'angularfire2/database';
-import { InfoEventoPage } from './../pages/info-evento/info-evento';
-import { AngularFireModule } from 'angularfire2';
+//import { AngularFireDatabase } from 'angularfire2/database';
+//import { InfoEventoPage } from './../pages/info-evento/info-evento';
+//import { AngularFireModule } from 'angularfire2';
 
 import { FirebaseAuthProvider } from './../providers/firebase-auth/firebase-auth';
 import { RegistroPage } from './../pages/registro/registro';
 
 
-import { ComprarEventoPage } from '../pages/comprar-evento/comprar-evento';
+//import { ComprarEventoPage } from '../pages/comprar-evento/comprar-evento';
 import { CreateEventPage } from '../pages/create-event/create-event';
 import { Component, ViewChild } from '@angular/core';
-import { Platform, NavController, Nav, MenuController, AlertController } from 'ionic-angular';
+import { Platform, Nav, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { EventosPage } from '../pages/eventos/eventos';
 import { InicioSesionPage } from '../pages/inicio-sesion/inicio-sesion';
-import { AngularFireAuth } from 'angularfire2/auth';
+//import { AngularFireAuth } from 'angularfire2/auth';
 import { EventosCompradosPage } from '../pages/eventos-comprados/eventos-comprados';
 //import { OneSignal } from '@ionic-native/onesignal';
 
@@ -36,7 +36,7 @@ export class MyApp {
     public authFirebase:FirebaseAuthProvider,
     //private oneSignal: OneSignal,
     public menuCtrl: MenuController,
-    private alertCtrl: AlertController
+    //private alertCtrl: AlertController
     ) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

@@ -27,7 +27,7 @@ export class EventosCompradosPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventosCreadosPage');
     let uid=this.authFirebase.getUser().uid;
-    this.dbFirebase.getEntradasByUid(uid).subscribe(listaEntradas=>{this.listaEntradas=listaEntradas;});
+    this.dbFirebase.getEntradasByUid(uid).subscribe(listaEntradas=>{this.listaEntradas=listaEntradas;}, error =>{});
   }
 
 }

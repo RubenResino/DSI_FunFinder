@@ -32,7 +32,7 @@ export class EventosPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventosPage');
-    this.dbFirebase.getEventos().subscribe(listaEventos=>{this.listaEventos=listaEventos;});
+    this.dbFirebase.getEventos().subscribe(listaEventos=>{this.listaEventos=listaEventos;}, error =>{});
   }
 
 }

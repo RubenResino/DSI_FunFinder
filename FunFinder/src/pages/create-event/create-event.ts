@@ -52,7 +52,7 @@ export class CreateEventPage {
 
     this.dbFirebase.guardaEvento(datosevento).then(res=>{
 			
-    });
+    }, error =>{});
     
     this.navCtrl.pop();
     this.navCtrl.push(EventosCreadosPage);
