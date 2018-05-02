@@ -19,7 +19,7 @@ import { EventosPage } from '../pages/eventos/eventos';
 import { InicioSesionPage } from '../pages/inicio-sesion/inicio-sesion';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { EventosCompradosPage } from '../pages/eventos-comprados/eventos-comprados';
-import { OneSignal } from '@ionic-native/onesignal';
+//import { OneSignal } from '@ionic-native/onesignal';
 
 
 @Component({
@@ -34,7 +34,7 @@ export class MyApp {
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     public authFirebase:FirebaseAuthProvider,
-    private oneSignal: OneSignal,
+    //private oneSignal: OneSignal,
     public menuCtrl: MenuController,
     private alertCtrl: AlertController
     ) {
@@ -45,7 +45,7 @@ export class MyApp {
       this.menuCtrl.enable(true, 'unauthenticated');
       statusBar.styleDefault();
       splashScreen.hide();
-      this.handlerNotifications();
+      //this.handlerNotifications();
     });
     authFirebase.afAuth.auth.onAuthStateChanged(user => {
       if (user) {
@@ -98,7 +98,7 @@ export class MyApp {
     this.nav.push(RegistroPage);
   }
 
-  private handlerNotifications(){
+  /*private handlerNotifications(){
     this.oneSignal.startInit('d1e4804b-15b5-4974-b6a2-07f2de8a53a9', '141145935893'); //Estos numeros son el App Id de OneSignal y el Sender ID de Firebase.
     this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
     this.oneSignal.handleNotificationOpened()
@@ -112,7 +112,7 @@ export class MyApp {
       console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
     });
     this.oneSignal.endInit();
-  }
+  }*/
 
 }
 
