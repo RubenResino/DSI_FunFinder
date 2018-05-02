@@ -24,9 +24,9 @@ export class CreateEventPage {
     this.eventForm = this.formBuilder.group({
       nombre: ['', Validators.required],
       descripcion: [''],
-      plazas: [Validators.required],
-      precio: [Validators.required],
-      fecha: [Validators.required],
+      plazas: ['',Validators.min(1)],
+      precio: ['',Validators.required],
+      fecha: ['',Validators.required],
       imagen: ['']
     })
   }
